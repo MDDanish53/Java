@@ -163,13 +163,60 @@ public class Patterns {
 
     // Print Number Pyramid
 
-    for(int i = 1; i <= 5; i++) {
-      int spaces = 5 - i;
-      for(int j = 1; j <= spaces; j++) {
+    // for(int i = 1; i <= 5; i++) {
+    //   int spaces = 5 - i;
+    //   for(int j = 1; j <= spaces; j++) {
+    //     System.out.print(" ");
+    //   }
+    //   for(int j = 1; j <= i; j++) {
+    //     System.out.print(i+" ");
+    //   }
+    //   System.out.println();
+    // }
+
+    // Print Palindromic Pattern
+
+    //for(int i = 1; i <= 5; i++) {
+      //spaces
+      //int spaces = 5 - i;
+      //for(int j = 1; j <= spaces; j++) {
+        //System.out.print(" ");
+      //}
+      //first half
+      //for(int j = i; j >= 1; j--) {
+        //System.out.print(j);
+      //}
+      //second half
+      //for(int j = 2; j <= i; j++) {
+        //System.out.print(j);
+      //}
+      //System.out.println();
+    //}
+
+    // Diamond Pattern
+
+    // upper half
+    for(int i = 1; i <= 4; i++) {
+      // spaces
+      for(int j = 1; j <= 4-i; j++) {
         System.out.print(" ");
       }
-      for(int j = 1; j <= i; j++) {
-        System.out.print(i+" ");
+      // left half
+      for(int j = 1; j <= 2*i-1; j++) {
+        System.out.print("*");
+      }
+      System.out.println();
+    }
+
+    //lower half
+    for(int i = 4; i >= 1; i--) {
+      // spaces
+      for(int j = 1; j <= 4-i; j++) {
+        System.out.print(" ");
+      }
+      // left half
+      for(int j = 1; j <= 2*i-1; j++) {
+        System.out.print("*");
       }
       System.out.println();
     }
