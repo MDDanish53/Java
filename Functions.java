@@ -1,5 +1,8 @@
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class Functions {
 
@@ -80,11 +83,68 @@ public class Functions {
     }
   }
 
+  // Function to calculate power of a number with respect to another number
+  public static double calculatePower(int num, int power) {
+   double result = Math.pow(num, power);
+   return result;
+  }
+
+  // Function to calculate GCD of two numbers 
+  public static int calculateGCD(int num1,int num2) {
+    List<Integer> num1List = new ArrayList<>();
+    List<Integer> num2List = new ArrayList<>();
+    List<Integer> commonDivisors = new ArrayList<>();
+    // Common Divisor of num1
+    for(int i = 1; i <= num1; i++) {
+      if(num1 % i == 0) {
+        num1List.add(i);
+      }
+    }
+    // Common Divisor of num2
+    for(int j = 1; j <= num2; j++) {
+      if(num2 % j == 0) {
+        num2List.add(j);
+      }
+    }
+    // Common Divisor of num1 and num2
+    for(int i = 0; i < num1List.size(); i++) {
+        for(int j = 0; j < num2List.size(); j++) {
+          if(num1List.get(i).equals(num2List.get(j))) {
+            commonDivisors.add(num1List.get(i));
+          }
+        }
+      }
+
+    // Greatest Common Divisor
+    int max = commonDivisors.get(0);
+      for(int i = 0; i < commonDivisors.size(); i++) {
+        if(commonDivisors.get(i) > max) {
+          max = commonDivisors.get(i);
+        }
+      }
+      return max;
+  }
+
+  // Function to print the Fibonacci Series
+  public static void fibonacci(int n) {
+    int a = 0;
+    int b = 1;
+    int next;
+    if(n >= 1) System.out.print(a+" ");
+    if(n >= 2) System.out.print(b+" ");
+    for(int i = 3; i <= n; i++) {
+      next = a + b;
+      System.out.print(next+" ");
+      a = b;
+      b = next;
+    }
+  }
+
   public static void main(String[] args) {
     try(Scanner sc = new Scanner(System.in)) {
-     System.out.print("Enter your age = ");
-     int age = sc.nextInt();
-     eligibleToVote(age);
+     System.out.print("Enter till how many digits you want to print fibonacci series = ");
+     int n = sc.nextInt();
+     fibonacci(n);
     }
   }
 }
