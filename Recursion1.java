@@ -48,11 +48,38 @@ public class Recursion1 {
     System.out.print(c+" ");
     printFibo(b, c, n-1);
   }
+
+  // Calculate x^n (stack height = n)
+  public static int calcPower(int x, int n) {
+    if(n == 0) { // base case 1
+      return 1;
+    }
+    if(x == 0) { // base case 2
+      return 0;
+    }
+    int xPownm1 = calcPower(x, n-1);
+    int xPown = x * xPownm1;
+    return xPown;
+  }
+
+  // Calculate x^n (stack height = logn)
+  public static int calcPow(int x, int n) {
+    if(n == 0) {
+      return 1;
+    }
+    if(x == 0) {
+      return 0;
+    }
+    // if n is even
+    if(n%2 == 0) {
+      return calcPow(x, n/2) * calcPow(x, n/2);
+    } else { // if n is odd
+      return calcPow(x, n/2) * calcPow(x, n/2) * x;
+    }
+  }
   public static void main(String args[]) {
-    int a = 0;
-    int b = 1;
-    int n = 8;
-    System.out.print(a+" "+b+" ");
-    printFibo(a, b, n-2);
+    int x = 2, n = 4;
+    int ans = calcPower(x, n);
+    System.out.print(ans);
   }
 }
