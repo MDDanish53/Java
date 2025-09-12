@@ -1,3 +1,6 @@
+
+import java.util.HashSet;
+
 public class Recursion2 {
   // Tower of Hanoi Problem
   public static void towerOfHanoi(int n, String src, String helper, String dest) {
@@ -102,8 +105,51 @@ public class Recursion2 {
     }
   }
 
+  // Print all the subsequences of a string - TC = O(2^n), 2 = number of choices, n = str.length()
+  public static void subsequences(String str, int idx, String newString) {
+    if(idx == str.length()) {
+      System.out.println(newString);
+      return;
+    }
+    char currChar = str.charAt(idx);
+    // to be in newString
+    subsequences(str, idx+1, newString+currChar);
+    // not to be in newString
+    subsequences(str, idx+1, newString);
+  }
+
+  // Print all the unique subsequences of a string
+  public static void uniqueSubsequences(String str, int idx, String newString, HashSet<String> set) {
+    if(idx == str.length()) {
+      if(set.contains(newString)) {
+        return;
+      } else {
+        System.out.println(newString);
+        set.add(newString);
+        return;
+      }
+    }
+    char currChar = str.charAt(idx);
+    uniqueSubsequences(str, idx+1, newString+currChar, set);
+    uniqueSubsequences(str, idx+1, newString, set);
+  }
+
+  // Print keypad combination - TC = O(4^n), 4 = maximum number of choices, n = str.length()
+  public static String[] keypad = {".", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
+  public static void printComb(String str, int idx, String combination) {
+    if(idx == str.length()) {
+      System.out.println(combination);
+      return;
+    }
+    char currChar = str.charAt(idx);
+    String mapping = keypad[currChar - '0'];
+    for(int i = 0; i < mapping.length(); i++) {
+      printComb(str, idx+1, combination+mapping.charAt(i));
+    }
+  }
+
   public static void main(String args[]) {
-   String str = "dxsdsdxxxgdfx";
-   removeDuplicates(str, 0, "");
+   String str = "01";
+   printComb(str, 0, "");
   }
 }
