@@ -55,10 +55,9 @@ public class NQueens {
   }
 
   public static void saveBoard(char board[][], List<List<String>> allBoards) {
-    String row = "";
     List<String> newBoard = new ArrayList<>();
     for(int i = 0; i < board.length; i++) {
-      row = "";
+      String row = "";
       for(int j = 0; j < board[0].length; j++) {
         if(board[i][j] == 'Q') {
           row += 'Q';
@@ -67,8 +66,8 @@ public class NQueens {
         }
       }
       newBoard.add(row);
-      allBoards.add(newBoard);
     }
+    allBoards.add(newBoard);
   }
 
   public static void helper(char board[][], List<List<String>> allBoards, int col) {
@@ -88,6 +87,12 @@ public class NQueens {
   public static List<List<String>> solveNQueens(int n) {
     List<List<String>> allBoards = new ArrayList<>();
     char board[][] = new char[n][n];
+    // Initialize board with '.'
+    for(int i = 0; i < n; i++) {
+      for(int j = 0; j < n; j++) {
+        board[i][j] = '.';
+      }
+    }
     helper(board, allBoards, 0);
     return allBoards;
   }
