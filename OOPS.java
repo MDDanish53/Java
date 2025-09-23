@@ -33,6 +33,8 @@ class Student {
   }
 }
 
+// ----------------------------------------------------------------------------------------
+
 // Polymorphism in Java's OOPS
 class Polymorphism {
   String name;
@@ -63,6 +65,8 @@ class Polymorphism {
   }
 }
 
+// --------------------------------------------------------------------------------------------
+
 // Inheritance in Java's OOPS
 // Base (Parent) class
 class Parent {
@@ -78,12 +82,142 @@ class Child extends Parent {
   }
 }
 
+// Types of Inheritance
+// 1. Single Level Inheritance
+class Shape {
+  public void area() {
+    System.out.println("displays area");
+  }
+}
+
+class Triangle extends Shape {
+  public void area(int l, int h) {
+    System.out.println(1/2 * l * h);
+  }
+}
+
+// 2. Multi Level Inheritance
+// Level 1
+class GrandFather {
+  public void manners() {
+    System.out.println("Respect and Help Everyone");
+  }
+}
+
+// Level 2
+class Father extends GrandFather {
+  public void manners() {
+    System.out.println("Respect Everyone and help them when needed");
+  }
+}
+
+// Level 3
+class Me extends Father {
+  public void manners() {
+    System.out.println("Help everyone and treat them kindly");
+  }
+}
+
+// 3. Hierarchical Inheritance
+class Fruit {
+  public void taste() {
+    System.out.println("The taste is good");
+  }
+}
+
+class Mango extends Fruit {
+  public void taste() {
+    System.out.println("Sweet");
+  }
+}
+
+class Orange extends Fruit {
+  public void taste() {
+    System.out.println("Sweet and Sour");
+  }
+}
+
+// 4. Hybrid Inheritance (Includes all types of inheritance)
+
+// ------------------------------------------------------------------------------------------
+
+// Abstraction
+abstract class Animal {
+  Animal() {
+    System.out.println("You are creating a new animal");
+  }
+  abstract void walk();
+  public void eat() {
+    System.out.println("Animal eats");
+  }
+}
+
+class Horse extends Animal {
+  public void walk() {
+    System.out.println("Walks on 4 legs");
+  }
+}
+
+class Chicken extends Animal {
+  Chicken() {
+    System.out.println("You have created chicken");
+  }
+  public void walk() {
+    System.out.println("Walks on 2 legs");
+  }
+}
+
+// Pure Abstraction using interfaces
+
+interface Car {
+  void start();
+  void drift();
+}
+
+class Lamborghini implements Car {
+  public void start() {
+    System.out.println("Car is started");
+  }
+  public void drift() {
+    System.out.println("Car drifts smoothly");
+  }
+}
+
+// Multiple inheritance using interface
+interface ProgrammingLanguage {
+  void code();
+}
+
+interface Compiler {
+  void output();
+}
+
+class Output implements ProgrammingLanguage, Compiler {
+  public void code() {
+    String code = "System.out.println('Hello World')";
+  }
+  public void output() {
+    System.out.println("Code compiled successfully");
+  }
+}
+
+// -----------------------------------------------------------------------------------------------------------
+
+// static keyword in java
+
+class Vidyalay {
+  String name;
+  static String school;
+  static void changeSchool() {
+    school = "newSchool";
+  }
+}
+
 public class OOPS {
   public static void main(String args[]) {
-    Child first = new Child();
-    first.behaviour = "gentle";
-    first.appearance = "ordinary";
-    first.mentality = "focused";
-    first.printInfo();
+    Vidyalay.school = "Dilasagram";
+    Vidyalay s1 = new Vidyalay();
+    s1.name = "Danish";
+    System.out.println(Vidyalay.school); 
   }
 }
