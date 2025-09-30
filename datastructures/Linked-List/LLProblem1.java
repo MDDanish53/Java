@@ -1,9 +1,11 @@
+//Problem 1 - remove nth node from last node
+
 package datastructures;
-public class LLProblems {
+public class LLProblem1 {
 
   private int size;
 
-  LLProblems() {
+  LLProblem1() {
     this.size = 0;
   }
 
@@ -93,7 +95,7 @@ public class LLProblems {
   }
 
   public static void main(String args[]) {
-    LLProblems list = new LLProblems();
+    LLProblem1 list = new LLProblem1();
     list.addFirst(1);
     list.addLast(2);
     list.addFirst(0);
