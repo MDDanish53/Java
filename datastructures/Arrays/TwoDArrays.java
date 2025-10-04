@@ -1,4 +1,4 @@
-package twodarrays;
+package datastructures.Arrays;
 
 
 

@@ -1,3 +1,4 @@
+// Problem 2 - Checking the Linked List is Palindrome or not
 public class LLProblem2 {
   public class Node {
     int val;
@@ -72,7 +73,7 @@ public class LLProblem2 {
 
     Node firstHalfStart = head;
     while (secondHalfStart != null) {
-      // checking both the half linked list nodes
+      // comparing both the half linked list nodes values
       if (firstHalfStart.val != secondHalfStart.val) {
         return false;
       }
@@ -98,8 +99,8 @@ public class LLProblem2 {
 
   public static void main(String args[]) {
     LLProblem2 list = new LLProblem2();
-    list.addFirst(8);
-    list.addLast(2);
+    list.addFirst(2);
+    list.addLast(21);
     list.addLast(1);
     list.addFirst(1);
     list.printList();

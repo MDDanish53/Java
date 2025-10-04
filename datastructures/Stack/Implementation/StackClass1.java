@@ -1,4 +1,4 @@
-package datastructures.Stack;
+package datastructures.Stack.Implementation;
 // Implementation 1 - Implementing stack using Linked List
 public class StackClass1 {
 

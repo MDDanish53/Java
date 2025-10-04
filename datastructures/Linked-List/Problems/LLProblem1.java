@@ -1,6 +1,4 @@
 //Problem 1 - remove nth node from last node
-
-package datastructures;
 public class LLProblem1 {
 
   private int size;

@@ -1,4 +1,4 @@
-package datastructures.Stack;
+package datastructures.Stack.Implementation;
 import java.util.Stack;
 
 public class StackClass3 {
