@@ -37,7 +37,7 @@ public class Queue2 {
       arr[rear] = data;
     }
 
-    // Dequeue - removing element from front of the Circular Queue
+    // Dequeue - removing element from front of the Circular Queue - TC = O(1)
     public static int remove() {
       if (isEmpty()) {
         System.out.println("Queue is Empty");
@@ -48,13 +48,12 @@ public class Queue2 {
       if (rear == front) {
         rear = front = -1;
       } else {
-        front = (front + 1) % size; // useful when we are at last index of Array and we want to go to the first
-                                    // index of Array
+        front = (front + 1) % size; // useful when we are at last index of Array and we want to go to the first index of Array
       }
       return result;
     }
 
-    // Peek - getting the value of the front element of the circular queue
+    // Peek - getting the value of the front element of the circular queue - TC = O(1)
     public static int peek() {
       if (isEmpty()) {
         System.out.println("Queue is empty");
