@@ -21,7 +21,7 @@ public class BTree {
 
     public static Node buildTree(int nodes[]) {
       idx++;
-      // if there is no child node node of a node
+      // if there is no child node of a node
       if (nodes[idx] == -1) {
         return null;
       }
@@ -29,7 +29,7 @@ public class BTree {
       newNode.left = buildTree(nodes);
       newNode.right = buildTree(nodes);
 
-      return newNode; // returning the the root node
+      return newNode; // returning the root node
     }
   }
 
