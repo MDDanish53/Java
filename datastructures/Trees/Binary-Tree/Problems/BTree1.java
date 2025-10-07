@@ -13,11 +13,15 @@ public class BTree1 {
   }
 
   static class BinaryTree {
-    static int idx = -1;
+    private int idx;
 
-    public static Node buildTree(int nodes[]) {
+    public BinaryTree() {
+      this.idx = -1;
+    }
+
+    public Node buildTree(int nodes[]) {
       idx++;
-      if (nodes[idx] == -1) {
+      if (idx >= nodes.length || nodes[idx] == -1) {
         return null;
       }
       Node newNode = new Node(nodes[idx]);
@@ -100,11 +104,47 @@ public class BTree1 {
     TreeInfo myInfo = new TreeInfo(myHeight, myDiam);
     return myInfo;
   }
+  // ________________________________________________________________________________________________________
+
+  public static boolean isIdentical(Node root, Node subRoot) {
+    if (root == null && subRoot == null) {
+      return true;
+    }
+    if (root == null || subRoot == null) {
+      return false;
+    }
+    if (root.data == subRoot.data) {
+      return isIdentical(root.left, subRoot.left) && isIdentical(root.right, subRoot.right);
+    }
+    return false;
+  }
+
+  // Check if a tree is a subtree of main tree
+  public static boolean isSubTree(Node root, Node subRoot) {
+    // As there are always null nodes in the main tree
+    if (subRoot == null) {
+      return true;
+    }
+    // if there are no nodes then the subtree cannot exist in it
+    if (root == null) {
+      return false;
+    }
+    // if the rootNode and subRootNode matches then match their child nodes
+    if (root.data == subRoot.data) {
+      if (isIdentical(root, subRoot)) {
+        return true;
+      }
+    }
+    return isSubTree(root.left, subRoot) || isSubTree(root.right, subRoot);
+  }
 
   public static void main(String args[]) {
-    int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+    int treeNodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
+    int subTreeNodes[] = { 2, 4, -1, -1, 5, -1, -1 };
     BinaryTree tree = new BinaryTree();
-    Node rootNode = tree.buildTree(nodes);
-    System.out.println(diameter2(rootNode).diam);
+    BinaryTree subTree = new BinaryTree();
+    Node rootNode = tree.buildTree(treeNodes);
+    Node subRootNode = subTree.buildTree(subTreeNodes);
+    System.out.println(isSubTree(rootNode, subRootNode));
   }
 }
