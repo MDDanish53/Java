@@ -66,7 +66,7 @@ public class GDFS2 {
     boolean vis[] = new boolean[V];
     for (int i = 0; i < V; i++) {
       if (vis[i] == false) {
-        dfs(graph, i, vis);
+        dfs(graph, i, vis); // 0 1 3 4 2 5 6
       }
     }
   }
